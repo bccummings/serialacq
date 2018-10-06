@@ -1,7 +1,5 @@
 import sys
 from glob import glob
-import numpy as np
-import serial
 
 def find_serial_devices():
     '''
