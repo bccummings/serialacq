@@ -3,6 +3,7 @@ import numpy as np
 import serial
 
 class Biomonitor():
+    '''The biomonitor device'''
 
     def __init__(self, portID):
         '''Constructor'''
@@ -28,6 +29,10 @@ class Biomonitor():
         return channel_number, value, timestamp
 
     def validate_input(self):
+        '''
+        Check to make sure we can read and interpret values from the board.
+        Called during constructor function.
+        '''
 
         try:
             c, v, t = self.parse_input()
