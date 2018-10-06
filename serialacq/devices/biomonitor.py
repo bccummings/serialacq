@@ -22,7 +22,7 @@ class Biomonitor():
 
                 channel_number = int(output[1])
                 value = int(output[2], 16)
-                timestamp = int(output[3], 16)
+                timestamp = int(output[3], 16) * 1e-6
             except:
                 pass
 
