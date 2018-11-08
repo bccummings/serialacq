@@ -1,11 +1,16 @@
 import numpy as np
 from collections import deque
-from time import time
+import datetime
 
-def init_savefile(fname):
-    with open(fname,'a') as outfile:
-        outfile.write('chan,value,time')
+def gen_filename():
+    fname = datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S.csv")
+    return fname
 
-def write_data(fname, c, v, t):
-    with open(fname, 'a') as outfile:
-        outfile.write('{},{},{}'.format(c, v, t))
+def init_savefile(folderpath):
+    fname = folderpath + '/' + gen_filename()
+    outfile = open(fname,'a')
+    outfile.write('chan,value,time\n')
+    return outfile
+
+def write_data(outfile, c, v, t):
+    outfile.write('{},{},{}\n'.format(c, v, t))
